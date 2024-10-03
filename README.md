@@ -4,8 +4,8 @@
 ## Funcionalidades
 - [] Cadastro de Metas;
 - [] Listagem de Metas;
-    - [] Metas Realizadas
-    - [] Metas Pendentes
+    - [] Metas Realizadas;
+    - [] Metas Pendentes;
 - [] Marca/Desmarcar Metas;
 - [] Deletar de Metas;
 - [] Sistema de Mensagens;
