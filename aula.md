@@ -28,35 +28,35 @@
 
 ## Tipos de dados:
 
-- [] Strings (texto): "" '' ``
-- [] Numbers: 2 1.4
-- [] Boolean: true, false
+- [X] Strings (texto): "" '' ``
+- [X] Numbers: 2 1.4
+- [X] Boolean: true, false
 
 ## Operadores
 
-- [] Operadores de Atribuição de Valor: =
+- [X] Operadores de Atribuição de Valor: =
 - [] Operador de Contatenação: +
-- [] Operadores de Comparação: == != <= >= < >
+- [X] Operadores de Comparação: == != <= >= < >
 - [] Spread Operator: ...
 
 ## Estruturas de dados:
 
 ### Arrays: 
 
-- [] Uma lista que contém qualquer tipo de dado
-- [] Métodos de array: push, [find, forEach, filter, map] : HOF (Higher Order Functions)
+- [X] Uma lista que contém qualquer tipo de dado
+- [X] Métodos de array: push, [find, forEach, filter, map] : HOF (Higher Order Functions)
 
 ### Objetos:
 
-- [] Atributos e métodos
-- [] Criação e manipulação de objetos
-- [] Acesso a propriedades de objetos
+- [X] Atributos e métodos
+- [X] Criação e manipulação de objetos
+- [X] Acesso a propriedades de objetos
 
 ### Functions
 
 - [X] Criar, passar argumento(parâmetros)
 - [X] Executar
-- [] Arrow function / named function
+- [X] Arrow function / named function
 
 ## Estrutura de repetição
 
@@ -72,13 +72,13 @@
 - [X] Importação de módulos (require, CommonJS)
 - [X] Importação de módulos (import, EsModule)
 - [X] Biblioteca 'inquirer' para criar prompts interativos
-- [] FS (file system)
+- [X] FS (file system)
 
 ## JSON
 
-- [] Javascript Object Notation (.json)
-- [] JSON.parse(): transforma de JSON para JS
-- [] JSON.stringify(): transforma de JS para JSON
+- [X] Javascript Object Notation (.json)
+- [X] JSON.parse(): transforma de JSON para JS
+- [X] JSON.stringify(): transforma de JS para JSON
 
 ## Programação assíncrona e Promises:
 
