@@ -23,7 +23,7 @@
 
 ## Escopo e variáveis:
 
-- [] Variáveis globais e locais
+- [X] Variáveis globais e locais
 - [] Constantes
 
 ## Tipos de dados:
@@ -54,13 +54,13 @@
 
 ### Functions
 
-- [] Criar, passar argumento(parâmetros)
-- [] Executar
+- [X] Criar, passar argumento(parâmetros)
+- [X] Executar
 - [] Arrow function / named function
 
 ## Estrutura de repetição
 
-- [] While
+- [X] While
 
 ## Condicionais
 
@@ -70,6 +70,7 @@
 ## Módulos em Node.js:
 
 - [] Importação de módulos (require, CommonJS)
+- [] Importação de módulos (import, EsModule)
 - [] Biblioteca 'inquirer' para criar prompts interativos
 - [] FS (file system)
 
