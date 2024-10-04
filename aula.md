@@ -24,7 +24,7 @@
 ## Escopo e variáveis:
 
 - [X] Variáveis globais e locais
-- [] Constantes
+- [X] Constantes
 
 ## Tipos de dados:
 
@@ -64,14 +64,14 @@
 
 ## Condicionais
 
-- [] Switch
+- [X] Switch
 - [] If/Else
 
 ## Módulos em Node.js:
 
-- [] Importação de módulos (require, CommonJS)
-- [] Importação de módulos (import, EsModule)
-- [] Biblioteca 'inquirer' para criar prompts interativos
+- [X] Importação de módulos (require, CommonJS)
+- [X] Importação de módulos (import, EsModule)
+- [X] Biblioteca 'inquirer' para criar prompts interativos
 - [] FS (file system)
 
 ## JSON
@@ -82,4 +82,4 @@
 
 ## Programação assíncrona e Promises:
 
-- [] Uso de funções assíncronas (async/await)
+- [X] Uso de funções assíncronas (async/await)
