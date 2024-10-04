@@ -1,10 +1,17 @@
 function start() {
-  console.log("começou");
-  let count = 0;
-  while (count <= 10) {
-    console.log(count);
-
-    count++;
+  while (true) {
+    const opcao = "sair";
+    switch (opcao) {
+      case "cadastrar":
+        console.log("cadastro de metas");
+        break;
+      case "listar":
+        console.log("listagem de metas");
+        break;
+      case "sair":
+        console.log("Saindo do sistema. Até a próxima! 👋");
+        return;
+    }
   }
 }
 
