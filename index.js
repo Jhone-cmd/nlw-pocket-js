@@ -64,6 +64,52 @@ const listarMetas = async () => {
   });
 };
 
+const metasRealizadas = async () => {
+  if (metas.length === 0) {
+    console.log("Nenhuma meta encontrada!");
+    return;
+  }
+
+  const realizadas = metas.filter((meta) => {
+    return meta.checked;
+  });
+
+  if (realizadas.length === 0) {
+    console.log("Nenhuma meta realizada! :(");
+    return;
+  }
+
+  await select({
+    message: "Metas Realizadas",
+    choices: [...realizadas],
+  });
+
+  console.log("Metas concluídas: " + realizadas.length);
+};
+
+const metasPendentes = async () => {
+  if (metas.length === 0) {
+    console.log("Nenhuma meta encontrada!");
+    return;
+  }
+
+  const pendentes = metas.filter((meta) => {
+    return !meta.checked;
+  });
+
+  if (pendentes.length === 0) {
+    console.log("Nenhuma meta pendente! :)");
+    return;
+  }
+
+  await select({
+    message: "Metas Realizadas",
+    choices: [...pendentes],
+  });
+
+  console.log("Metas concluídas: " + pendentes.length);
+};
+
 async function start() {
   await carregarMetas();
 
@@ -82,6 +128,14 @@ async function start() {
           value: "listar",
         },
         {
+          name: "Metas Realizadas",
+          value: "realizadas",
+        },
+        {
+          name: "Metas Pendentes",
+          value: "pendentes",
+        },
+        {
           name: "Sair",
           value: "sair",
         },
@@ -94,6 +148,12 @@ async function start() {
         break;
       case "listar":
         await listarMetas();
+        break;
+      case "realizadas":
+        await metasRealizadas();
+        break;
+      case "pendentes":
+        await metasPendentes();
         break;
       case "sair":
         console.log("Saindo do sistema. Até a próxima! 👋");
