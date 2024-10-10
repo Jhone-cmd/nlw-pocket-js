@@ -1,5 +1,3 @@
-// const {} = require("@inquirer/prompts"); // CommonJs
-
 import { input, select, checkbox } from "@inquirer/prompts"; // EsModule
 import fs from "node:fs/promises";
 
@@ -25,10 +23,11 @@ const cadastrarMeta = async () => {
 
   if (meta.length === 0) {
     console.log("Você precisa informar uma meta!");
+    return;
   }
 
   metas.push({
-    name: meta,
+    value: meta,
     checked: false,
   });
 };
@@ -46,6 +45,10 @@ const listarMetas = async () => {
     instructions: false,
   });
 
+  metas.forEach((m) => {
+    m.checked = false;
+  });
+
   if (respostas.length === 0) {
     console.log("Nenhuma meta selecionada!");
     return;
@@ -53,12 +56,8 @@ const listarMetas = async () => {
 
   respostas.forEach((resposta) => {
     const meta = metas.find((m) => {
-      return m.name === resposta;
+      return m.value === resposta;
     });
-    if (!meta) {
-      console.log(`Meta não encontrada para: ${resposta}`);
-      return; // Adicione um return para evitar erros
-    }
 
     meta.checked = true;
   });
@@ -84,7 +83,7 @@ const metasRealizadas = async () => {
     choices: [...realizadas],
   });
 
-  console.log("Metas concluídas: " + realizadas.length);
+  console.log("Meta(s) concluída(s): " + realizadas.length);
 };
 
 const metasPendentes = async () => {
@@ -103,11 +102,42 @@ const metasPendentes = async () => {
   }
 
   await select({
-    message: "Metas Realizadas",
+    message: "Metas Pendentes",
     choices: [...pendentes],
   });
 
-  console.log("Metas concluídas: " + pendentes.length);
+  console.log("Meta(s) Pendente(s): " + pendentes.length);
+};
+
+const deletarMetas = async () => {
+  if (metas.length === 0) {
+    console.log("Nenhuma meta encontrada!");
+    return;
+  }
+
+  const metasPendentes = metas.map((meta) => {
+    return { value: meta.value, checked: false };
+  });
+
+  const metasParaDeletar = await checkbox({
+    message:
+      "Use as Setas para alternar entre metas, o Espaço para marcar/desmarcar e o Enter para finalizar esta etapa.",
+    choices: [...metasPendentes],
+    instructions: false,
+  });
+
+  if (metasParaDeletar.length === 0) {
+    console.log("Nenhuma meta para deletar!");
+    return;
+  }
+
+  metasParaDeletar.forEach((meta) => {
+    metas = metas.filter((m) => {
+      return m.value !== meta;
+    });
+  });
+
+  console.log("Meta(s) deletadas(s) com sucesso");
 };
 
 async function start() {
@@ -136,6 +166,10 @@ async function start() {
           value: "pendentes",
         },
         {
+          name: "Deletar Metas",
+          value: "deletar",
+        },
+        {
           name: "Sair",
           value: "sair",
         },
@@ -154,6 +188,9 @@ async function start() {
         break;
       case "pendentes":
         await metasPendentes();
+        break;
+      case "deletar":
+        await deletarMetas();
         break;
       case "sair":
         console.log("Saindo do sistema. Até a próxima! 👋");

@@ -1,10 +1,6 @@
 [
   {
-    "name": "Tomar 3L de água por dia",
+    "value": "Tomar 3L de água por dia",
     "checked": false
-  },
-  {
-    "name": "Andar",
-    "checked": true
   }
 ]
