@@ -1,6 +1,8 @@
 import { input, select, checkbox } from "@inquirer/prompts"; // EsModule
+import { log } from "node:console";
 import fs from "node:fs/promises";
 
+let mensagem = "Bem vindo ao app In.orbit (Gerenciador de Metas)";
 let metas;
 
 const carregarMetas = async () => {
@@ -22,7 +24,7 @@ const cadastrarMeta = async () => {
   });
 
   if (meta.length === 0) {
-    console.log("Você precisa informar uma meta!");
+    mensagem = "Você precisa informar uma meta!";
     return;
   }
 
@@ -30,11 +32,13 @@ const cadastrarMeta = async () => {
     value: meta,
     checked: false,
   });
+
+  mensagem = "Meta cadastrada com sucesso! :)";
 };
 
 const listarMetas = async () => {
   if (metas.length === 0) {
-    console.log("Nenhuma meta encontrada!");
+    mensagem = "Nenhuma meta encontrada!";
     return;
   }
 
@@ -50,7 +54,7 @@ const listarMetas = async () => {
   });
 
   if (respostas.length === 0) {
-    console.log("Nenhuma meta selecionada!");
+    mensagem = "Nenhuma meta selecionada!";
     return;
   }
 
@@ -65,7 +69,7 @@ const listarMetas = async () => {
 
 const metasRealizadas = async () => {
   if (metas.length === 0) {
-    console.log("Nenhuma meta encontrada!");
+    mensagem = "Nenhuma meta encontrada!";
     return;
   }
 
@@ -74,7 +78,7 @@ const metasRealizadas = async () => {
   });
 
   if (realizadas.length === 0) {
-    console.log("Nenhuma meta realizada! :(");
+    mensagem = "Nenhuma meta realizada! :(";
     return;
   }
 
@@ -83,12 +87,12 @@ const metasRealizadas = async () => {
     choices: [...realizadas],
   });
 
-  console.log("Meta(s) concluída(s): " + realizadas.length);
+  mensagem = "Meta(s) concluída(s): " + realizadas.length;
 };
 
 const metasPendentes = async () => {
   if (metas.length === 0) {
-    console.log("Nenhuma meta encontrada!");
+    mensagem = "Nenhuma meta encontrada!";
     return;
   }
 
@@ -97,7 +101,7 @@ const metasPendentes = async () => {
   });
 
   if (pendentes.length === 0) {
-    console.log("Nenhuma meta pendente! :)");
+    mensagem = "Nenhuma meta pendente! :)";
     return;
   }
 
@@ -106,12 +110,12 @@ const metasPendentes = async () => {
     choices: [...pendentes],
   });
 
-  console.log("Meta(s) Pendente(s): " + pendentes.length);
+  mensagem = "Meta(s) Pendente(s): " + pendentes.length;
 };
 
 const deletarMetas = async () => {
   if (metas.length === 0) {
-    console.log("Nenhuma meta encontrada!");
+    mensagem = "Nenhuma meta encontrada!";
     return;
   }
 
@@ -127,7 +131,7 @@ const deletarMetas = async () => {
   });
 
   if (metasParaDeletar.length === 0) {
-    console.log("Nenhuma meta para deletar!");
+    mensagem = "Nenhuma meta para deletar!";
     return;
   }
 
@@ -137,13 +141,24 @@ const deletarMetas = async () => {
     });
   });
 
-  console.log("Meta(s) deletadas(s) com sucesso");
+  mensagem = "Meta(s) deletadas(s) com sucesso";
+};
+
+const mostrarMensagem = () => {
+  console.clear();
+
+  if (mensagem !== "") {
+    console.log(mensagem);
+    console.log("");
+    mensagem = "";
+  }
 };
 
 async function start() {
   await carregarMetas();
 
   while (true) {
+    mostrarMensagem();
     await salvarMetas();
 
     const opcao = await select({
@@ -193,6 +208,7 @@ async function start() {
         await deletarMetas();
         break;
       case "sair":
+        mostrarMensagem();
         console.log("Saindo do sistema. Até a próxima! 👋");
         return;
     }

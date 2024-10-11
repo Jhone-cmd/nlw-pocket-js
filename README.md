@@ -3,10 +3,10 @@
 
 ## Funcionalidades
 - [X] Cadastro de Metas;
-- [] Listagem de Metas;
-    - [] Metas Realizadas;
-    - [] Metas Pendentes;
-- [] Marca/Desmarcar Metas;
-- [] Deletar de Metas;
-- [] Sistema de Mensagens;
+- [X] Listagem de Metas;
+    - [X] Metas Realizadas;
+    - [X] Metas Pendentes;
+- [X] Marca/Desmarcar Metas;
+- [X] Deletar de Metas;
+- [X] Sistema de Mensagens;
 - [X] Persistência de Dados;
