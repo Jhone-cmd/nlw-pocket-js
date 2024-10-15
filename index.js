@@ -1,8 +1,17 @@
 import { input, select, checkbox } from "@inquirer/prompts"; // EsModule
-import { log } from "node:console";
 import fs from "node:fs/promises";
 
+/**
+ * Mensagem de boas-vindas para o usuário.
+ * @type {string}
+ * @description Esta mensagem é exibida quando o usuário acessa o aplicativo.
+ */
 let mensagem = "Bem vindo ao app In.orbit (Gerenciador de Metas)";
+
+/**
+ * Metas será um array de objetos representando as metas do usuário.
+ * @type {Array<{ value: string, checked: boolean }>}
+ */
 let metas;
 
 const carregarMetas = async () => {
